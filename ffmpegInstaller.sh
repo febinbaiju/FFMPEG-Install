@@ -125,4 +125,15 @@ config_chk(){
         
         echo "Finished Installing Libraries..."
         
+        ## Installing ffmpeg
+        echo "Installing FFMPEG...."
+        
+        cd ~/ffmpeg_sources
+        git clone --depth 1 http://source.ffmpeg.org/git/ffmpeg.git
+        cd ffmpeg
+        PKG_CONFIG_PATH="$HOME/ffmpeg_build/lib/pkgconfig" ./configure --prefix="$HOME/ffmpeg_build" --extra-cflags="-I$HOME/ffmpeg_build/include" --extra-ldflags="-L$HOME/ffmpeg_build/lib" --bindir="$HOME/bin" --pkg-config-flags="--static" --enable-gpl --enable-nonfree --enable-libopencore-amrnb --enable-version3 --enable-libvo_aacenc --enable-libmp3lame --enable-libfdk_aac --enable-libx264 --enable-libxvid
+        config_chk ffmpeg
+        mk
+        chk_last ffmpeg
+        
         
