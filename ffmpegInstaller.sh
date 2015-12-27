@@ -80,4 +80,13 @@ config_chk(){
         mk
         chk_last libvpx
         
+        echo "Installing opencoreamr..."
+        wget "http://f23.wapka-files.com/download/4/3/4/1550859_434372229364ae4147fc5995.gz/fc2cdda109f080601418/opencore-amr-0.1.3.tar.gz"
+        tar -xzvf opencore-amr-0.1.3.tar.gz
+        cd opencore-amr-0.1.3
+        ./configure
+        config_chk opencore
+        mk
+        chk_last opencore
+        
         
