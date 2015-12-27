@@ -42,3 +42,21 @@ config_chk(){
         mk
         chk_last Yasm
         
+        echo "Installing libx264...."
+        cd ~/ffmpeg_sources
+        git clone --depth 1 git://git.videolan.org/x264
+        cd x264
+        PKG_CONFIG_PATH="$HOME/ffmpeg_build/lib/pkgconfig" ./configure --prefix="$HOME/ffmpeg_build" --bindir="$HOME/bin" --enable-static
+        config_chk libx264
+        mk
+        chk_last libx264
+        
+        echo "Installing fdk-aac..."
+        cd ~/ffmpeg_sources
+        git clone --depth 1 git://git.code.sf.net/p/opencore-amr/fdk-aac
+        cd fdk-aac
+        autoreconf -fiv
+        ./configure --prefix="$HOME/ffmpeg_build" --disable-shared
+        config_chk fdk-aac
+        mk
+        chk_last fdk-aac
