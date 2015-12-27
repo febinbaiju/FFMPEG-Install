@@ -60,3 +60,15 @@ config_chk(){
         config_chk fdk-aac
         mk
         chk_last fdk-aac
+        
+        echo "Installing libmp3lame..."
+        cd ~/ffmpeg_sources
+        curl -L -O http://downloads.sourceforge.net/project/lame/lame/3.99/lame-3.99.5.tar.gz
+        tar xzvf lame-3.99.5.tar.gz
+        cd lame-3.99.5
+        ./configure --prefix="$HOME/ffmpeg_build" --bindir="$HOME/bin" --disable-shared --enable-nasm
+        config_chk libmp3lame
+        mk
+        chk_last libmp3lame
+        
+        
