@@ -3,7 +3,7 @@
 alias mk='make && make install && make distclean && cd ~/ffmpeg_sources'
 chk_root(){
     USR=`id -u`
-    if [ "$USR" == 0 ]
+    if [ "$USR" != 0 ]
     then
         echo "Login as Root to run the installer"
         exit
@@ -30,10 +30,11 @@ config_chk(){
         exit
     fi
 }
+echo "---------------------Beginning FFMPEG Installation--------------------------"
 
     chk_root
         echo "Installing dependencies........."
-        #yum install autoconf automake cmake freetype-devel gcc gcc-c++ git libtool make mercurial nasm pkgconfig zlib-devel -y
+        yum install autoconf automake cmake freetype-devel gcc gcc-c++ git libtool make mercurial nasm pkgconfig zlib-devel -y
         
         export HOME=/usr #  Global Declaration
         echo "Making installation directory..."
@@ -140,4 +141,4 @@ config_chk(){
         mk
         chk_last ffmpeg
         
-        
+        echo "---------------FFMPEG INSTALLATION SUCCESS------------------"
