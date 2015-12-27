@@ -9,6 +9,13 @@ chk_root(){
         exit
     fi
 }
+chk_url(){
+    if [ "$?" != 0 ]
+    then
+        echo "Library downloading failed.."
+        exit
+    fi
+}
 chk_last(){
     if [ "$?" != 0 ]
     then
