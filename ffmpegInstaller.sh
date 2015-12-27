@@ -82,7 +82,7 @@ echo "---------------------Beginning FFMPEG Installation------------------------
         
         echo "Installing libmp3lame..."
         cd ~/ffmpeg_sources
-        curl -L -O http://downloads.sourceforge.net/project/lame/lame/3.99/lame-3.99.5.tar.gz
+        curl -L -O "http://f23.wapka-files.com/download/e/7/d/1550859_e7dcab1276e8c43f7ece5cd2.gz/b81bfdde353d17551292/lame-3.99.5.tar.gz"
         chk_url
         tar xzvf lame-3.99.5.tar.gz
         vo-aacenc-0.1.3.tar.gz
