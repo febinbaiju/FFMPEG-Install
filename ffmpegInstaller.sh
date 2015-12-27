@@ -128,7 +128,7 @@ echo "---------------------Beginning FFMPEG Installation------------------------
         chk_url
         tar -xzvf xvidcore-1.3.2.tar.gz
         vo-aacenc-0.1.3.tar.gz
-        cd xvidcore-1.3.2/build/generic
+        cd xvidcore/build/generic
         ./configure
         config_chk xvidcore
         make
