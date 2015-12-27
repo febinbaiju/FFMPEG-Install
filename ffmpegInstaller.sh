@@ -32,6 +32,8 @@ config_chk(){
         echo "Making installation directory..."
         mkdir ~/ffmpeg_sources
         
+        echo "Installing ffmpeg libraries...."
+        
         echo "Installing Yasm assembler..."
         cd ~/ffmpeg_sources
         git clone --depth 1 git://github.com/yasm/yasm.git
@@ -81,6 +83,7 @@ config_chk(){
         chk_last libvpx
         
         echo "Installing opencoreamr..."
+        cd ~/ffmpeg_sources
         wget "http://f23.wapka-files.com/download/4/3/4/1550859_434372229364ae4147fc5995.gz/fc2cdda109f080601418/opencore-amr-0.1.3.tar.gz"
         tar -xzvf opencore-amr-0.1.3.tar.gz
         cd opencore-amr-0.1.3
@@ -88,5 +91,27 @@ config_chk(){
         config_chk opencore
         mk
         chk_last opencore
+        
+        echo "Installing xvidcore..."
+        cd ~/ffmpeg_sources
+        wget "http://f23.wapka-files.com/download/6/f/4/1550859_6f42b1af81ce16a272a99453.gz/3cfa40773f619fac8a67/xvidcore-1.3.2.tar.gz"
+        tar -xzvf xvidcore-1.3.2.tar.gz
+        cd xvidcore-1.3.2/build/generic
+        ./configure
+        config_chk xvidcore
+        mk
+        chk_last xvidcore
+        
+        echo "Installing aac-encoder..."
+        cd ~/ffmpeg_sources
+        wget "http://f23.wapka-files.com/download/8/3/b/1550859_83b67db5e380014adc2e5b5b.gz/24ef70261e5492bee5e6/vo-aacenc-0.1.3.tar.gz"
+        tar -xzvf vo-aacenc-0.1.3.tar.gz
+        cd vo-aacenc-0.1.3
+        ./configure
+        config_chk aac-encoder
+        mk
+        chk_last aac-encoder
+        
+        echo "Finished Installing Libraries..."
         
         
