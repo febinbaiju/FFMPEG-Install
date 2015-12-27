@@ -71,4 +71,13 @@ config_chk(){
         mk
         chk_last libmp3lame
         
+        echo "Installing libvpx..."
+        cd ~/ffmpeg_sources
+        git clone --depth 1 https://chromium.googlesource.com/webm/libvpx.git
+        cd libvpx
+        ./configure --prefix="$HOME/ffmpeg_build" --disable-examples
+        config_chk libvpx
+        mk
+        chk_last libvpx
+        
         
