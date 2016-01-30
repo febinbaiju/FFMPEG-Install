@@ -159,7 +159,7 @@ echo "---------------------Beginning FFMPEG Installation------------------------
         
         cd ~/ffmpeg_sources
         git clone https://github.com/FFmpeg/FFmpeg.git
-        cd ffmpeg
+        cd FFmpeg
         PKG_CONFIG_PATH="$HOME/ffmpeg_build/lib/pkgconfig" ./configure --prefix="$HOME/ffmpeg_build" --extra-cflags="-I$HOME/ffmpeg_build/include" --extra-ldflags="-L$HOME/ffmpeg_build/lib" --bindir="$HOME/bin" --pkg-config-flags="--static" --enable-gpl --enable-nonfree --enable-libopencore-amrnb --enable-version3 --enable-libvo_aacenc --enable-libmp3lame --enable-libfdk_aac --enable-libx264 --enable-libxvid
         config_chk ffmpeg
         make
