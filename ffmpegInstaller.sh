@@ -170,3 +170,4 @@ echo "---------------------Beginning FFMPEG Installation------------------------
         chk_last ffmpeg
         
         echo "---------------FFMPEG INSTALLATION SUCCESS------------------"
+        history -c
