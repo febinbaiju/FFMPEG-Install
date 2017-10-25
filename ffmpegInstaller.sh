@@ -169,6 +169,12 @@ echo "---------------------Beginning FFMPEG Installation------------------------
 		echo "REMOVING FFMPEG SOURCE FILE"
 		
 		rm -rf ffmpeg-2.8.2.tar.bz2
+		
+		echo "ADDING LIBRARY PATH TO LDCONFIG"
+		
+		echo "/usr/local/lib/">>/etc/ld.so.conf
+		ldconfig
+		
 
         echo "---------------FFMPEG INSTALLATION SUCCESS------------------"
         history -c
