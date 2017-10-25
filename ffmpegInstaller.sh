@@ -146,8 +146,7 @@ echo "---------------------Beginning FFMPEG Installation------------------------
         echo "Installing FFMPEG...."
         
         cd ~/ffmpeg_sources
-       wget "http://ffmpeg.org/releases/ffmpeg-2.8.2.tar.bz2"
-       tar -xjvf ffmpeg-2.8.2.tar.bz2
+       tar -xjvf $owd/ffmpeg-2.8.2.tar.bz2
         cd ffmpeg-2.8.2
         PKG_CONFIG_PATH="$HOME/ffmpeg_build/lib/pkgconfig" ./configure --prefix="$HOME/ffmpeg_build" --extra-cflags="-I$HOME/ffmpeg_build/include" --extra-ldflags="-L$HOME/ffmpeg_build/lib" --bindir="$HOME/bin" --pkg-config-flags="--static" --enable-gpl --enable-nonfree --enable-libopencore-amrnb --enable-version3 --enable-libfdk_aac --enable-libvo-aacenc --enable-libmp3lame --enable-libx264 --enable-libxvid
         config_chk ffmpeg
@@ -156,19 +155,27 @@ echo "---------------------Beginning FFMPEG Installation------------------------
         make distclean
         cd ~/ffmpeg_sources
         chk_last ffmpeg
+	
         
-		echo "REMOVING LIBRARIES"
+		echo "REMOVING LIBRARY FILES"
 		
-		rm -rf $owd/lame-3.99.5.tar.gz
-		rm -rf $owd/opencore-amr-0.1.3.tar.gz
-		rm -rf $owd/xvidcore-1.3.2.tar.gz
-		rm -rf $owd/vo-aacenc-0.1.3.tar.gz
+		rm -f $owd/lame-3.99.5.tar.gz
+		rm -f $owd/opencore-amr-0.1.3.tar.gz
+		rm -f $owd/xvidcore-1.3.2.tar.gz
+		rm -f $owd/vo-aacenc-0.1.3.tar.gz
+		rm -rf $owd/ffmpeg-2.8.2.tar.bz2
 		
-		echo "LIBRARIES removed from the system"
+		echo "REMOVING LIBRARY FOLDERS"
 		
-		echo "REMOVING FFMPEG SOURCE FILE"
-		
-		rm -rf ffmpeg-2.8.2.tar.bz2
+		rm -rf yasm
+		rm -rf x264
+		rm -rf fdk-aac
+		rm -rf lame-3.99.5
+		rm -rf libvpx
+		rm -rf opencore-amr-0.1.3
+		rm -rf xvidcore
+		rm -rf vo-aacenc-0.1.3
+		rm -rf ffmpeg-2.8.2
 		
 		echo "ADDING LIBRARY PATH TO LDCONFIG"
 		
