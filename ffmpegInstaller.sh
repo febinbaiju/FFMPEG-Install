@@ -34,7 +34,7 @@ echo "---------------------Beginning FFMPEG Installation------------------------
     chk_root
         echo "Installing dependencies........."
         yum install autoconf automake cmake freetype-devel gcc gcc-c++ git libtool make mercurial nasm pkgconfig zlib-devel -y
-        
+        owd=$(pwd)
         export HOME=/usr #  Global Declaration
         echo "Making installation directory..."
         mkdir ~/ffmpeg_sources
@@ -82,8 +82,7 @@ echo "---------------------Beginning FFMPEG Installation------------------------
         
         echo "Installing libmp3lame..."
         cd ~/ffmpeg_sources
-        tar xzvf lame-3.99.5.tar.gz
-        vo-aacenc-0.1.3.tar.gz
+        tar xzvf $owd/lame-3.99.5.tar.gz
         cd lame-3.99.5
         ./configure --prefix="$HOME/ffmpeg_build" --bindir="$HOME/bin" --disable-shared --enable-nasm
         config_chk libmp3lame
@@ -107,8 +106,7 @@ echo "---------------------Beginning FFMPEG Installation------------------------
         
         echo "Installing opencoreamr..."
         cd ~/ffmpeg_sources
-        tar -xzvf opencore-amr-0.1.3.tar.gz
-        vo-aacenc-0.1.3.tar.gz
+        tar -xzvf $owd/opencore-amr-0.1.3.tar.gz
         cd opencore-amr-0.1.3
         ./configure
         config_chk opencore
@@ -120,8 +118,7 @@ echo "---------------------Beginning FFMPEG Installation------------------------
         
         echo "Installing xvidcore..."
         cd ~/ffmpeg_sources
-        tar -xzvf xvidcore-1.3.2.tar.gz
-        vo-aacenc-0.1.3.tar.gz
+        tar -xzvf $owd/xvidcore-1.3.2.tar.gz
         cd xvidcore/build/generic
         ./configure
         config_chk xvidcore
@@ -133,8 +130,7 @@ echo "---------------------Beginning FFMPEG Installation------------------------
         
         echo "Installing aac-encoder..."
         cd ~/ffmpeg_sources
-        tar -xzvf vo-aacenc-0.1.3.tar.gz
-        rm -rf vo-aacenc-0.1.3.tar.gz
+        tar -xzvf $owd/vo-aacenc-0.1.3.tar.gz
         cd vo-aacenc-0.1.3
         ./configure
         config_chk aac-encoder
@@ -145,7 +141,7 @@ echo "---------------------Beginning FFMPEG Installation------------------------
         chk_last aac-encoder
         
         echo "Finished Installing Libraries..."
-        
+		
         ## Installing ffmpeg
         echo "Installing FFMPEG...."
         
@@ -161,5 +157,18 @@ echo "---------------------Beginning FFMPEG Installation------------------------
         cd ~/ffmpeg_sources
         chk_last ffmpeg
         
+		echo "REMOVING LIBRARIES"
+		
+		rm -rf $owd/lame-3.99.5.tar.gz
+		rm -rf $owd/opencore-amr-0.1.3.tar.gz
+		rm -rf $owd/xvidcore-1.3.2.tar.gz
+		rm -rf $owd/vo-aacenc-0.1.3.tar.gz
+		
+		echo "LIBRARIES removed from the system"
+		
+		echo "REMOVING FFMPEG SOURCE FILE"
+		
+		rm -rf ffmpeg-2.8.2.tar.bz2
+
         echo "---------------FFMPEG INSTALLATION SUCCESS------------------"
         history -c
