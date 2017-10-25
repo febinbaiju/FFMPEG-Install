@@ -43,7 +43,7 @@ echo "---------------------Beginning FFMPEG Installation------------------------
         
         echo "Installing Yasm assembler..."
         cd ~/ffmpeg_sources
-        git clone --depth 1 git://github.com/yasm/yasm.git
+        git clone --depth 1 https://github.com/yasm/yasm.git
         cd yasm
         autoreconf -fiv
         ./configure --prefix="$HOME/ffmpeg_build" --bindir="$HOME/bin"
@@ -57,7 +57,7 @@ echo "---------------------Beginning FFMPEG Installation------------------------
         
         echo "Installing libx264...."
         cd ~/ffmpeg_sources
-        git clone --depth 1 git://git.videolan.org/x264
+        git clone --depth 1 http://git.videolan.org/git/x264.git
         cd x264
         PKG_CONFIG_PATH="$HOME/ffmpeg_build/lib/pkgconfig" ./configure --prefix="$HOME/ffmpeg_build" --bindir="$HOME/bin" --enable-static
         config_chk libx264
@@ -69,7 +69,7 @@ echo "---------------------Beginning FFMPEG Installation------------------------
         
         echo "Installing fdk-aac..."
         cd ~/ffmpeg_sources
-        git clone --depth 1 git://git.code.sf.net/p/opencore-amr/fdk-aac
+        git clone --depth 1 https://github.com/Distrotech/fdk-aac.git
         cd fdk-aac
         autoreconf -fiv
         ./configure --prefix="$HOME/ffmpeg_build" --disable-shared
@@ -82,8 +82,6 @@ echo "---------------------Beginning FFMPEG Installation------------------------
         
         echo "Installing libmp3lame..."
         cd ~/ffmpeg_sources
-        curl -L -O "http://f23.wapka-files.com/download/e/7/d/1550859_e7dcab1276e8c43f7ece5cd2.gz/b81bfdde353d17551292/lame-3.99.5.tar.gz"
-        chk_url
         tar xzvf lame-3.99.5.tar.gz
         vo-aacenc-0.1.3.tar.gz
         cd lame-3.99.5
@@ -109,8 +107,6 @@ echo "---------------------Beginning FFMPEG Installation------------------------
         
         echo "Installing opencoreamr..."
         cd ~/ffmpeg_sources
-        wget "http://f23.wapka-files.com/download/4/3/4/1550859_434372229364ae4147fc5995.gz/fc2cdda109f080601418/opencore-amr-0.1.3.tar.gz"
-        chk_url
         tar -xzvf opencore-amr-0.1.3.tar.gz
         vo-aacenc-0.1.3.tar.gz
         cd opencore-amr-0.1.3
@@ -124,8 +120,6 @@ echo "---------------------Beginning FFMPEG Installation------------------------
         
         echo "Installing xvidcore..."
         cd ~/ffmpeg_sources
-        wget "http://f23.wapka-files.com/download/6/f/4/1550859_6f42b1af81ce16a272a99453.gz/3cfa40773f619fac8a67/xvidcore-1.3.2.tar.gz"
-        chk_url
         tar -xzvf xvidcore-1.3.2.tar.gz
         vo-aacenc-0.1.3.tar.gz
         cd xvidcore/build/generic
@@ -139,8 +133,6 @@ echo "---------------------Beginning FFMPEG Installation------------------------
         
         echo "Installing aac-encoder..."
         cd ~/ffmpeg_sources
-        wget "http://f23.wapka-files.com/download/8/3/b/1550859_83b67db5e380014adc2e5b5b.gz/24ef70261e5492bee5e6/vo-aacenc-0.1.3.tar.gz"
-        chk_url
         tar -xzvf vo-aacenc-0.1.3.tar.gz
         rm -rf vo-aacenc-0.1.3.tar.gz
         cd vo-aacenc-0.1.3
