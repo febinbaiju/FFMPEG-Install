@@ -176,6 +176,7 @@ echo "---------------------Beginning FFMPEG Installation------------------------
 		rm -rf xvidcore
 		rm -rf vo-aacenc-0.1.3
 		rm -rf ffmpeg-2.8.2
+		rm -rf $HOME/ffmpeg_sources
 		
 		echo "ADDING LIBRARY PATH TO LDCONFIG"
 		
