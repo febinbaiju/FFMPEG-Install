@@ -35,22 +35,23 @@ echo "---------------------Beginning FFMPEG Installation------------------------
         echo "Installing dependencies........."
         apt-get -y install autoconf automake build-essential cmake git-core libass-dev libfreetype6-dev libsdl2-dev libtool libva-dev libvdpau-dev libvorbis-dev libxcb1-dev libxcb-shm0-dev libxcb-xfixes0-dev pkg-config texinfo wget zlib1g-dev
         owd=$(pwd)
-	mkdir -p /usr/ffmpeg2017/
+	    mkdir -p /usr/ffmpeg2017/
         export HOME=/usr/ffmpeg2017/ #  Global Declaration
         echo "Making installation directory..."
         mkdir ~/ffmpeg_sources
         
         echo "Installing ffmpeg libraries...."
 
-	echo "Installing Nasm assembler.."
-	cd ~/ffmpeg_sources
-	tar xjvf $owd/nasm-2.14.02.tar.bz2
-	cd nasm-2.14.02
-	./autogen.sh
-	PATH="$HOME/bin:$PATH" ./configure --prefix="$HOME/ffmpeg_build" --bindir="$HOME/bin"
-	make
-	make install
-	make distclean
+	   echo "Installing Nasm assembler.."
+	   cd ~/ffmpeg_sources
+	   tar xjvf $owd/nasm-2.14.02.tar.bz2
+	   cd nasm-2.14.02
+	   ./autogen.sh
+	   PATH="$HOME/bin:$PATH" ./configure --prefix="$HOME/ffmpeg_build" --bindir="$HOME/bin"
+	   make
+	   make install
+	   make distclean
+       cd ~/ffmpeg_sources
         
         echo "Installing Yasm assembler..."
         cd ~/ffmpeg_sources
