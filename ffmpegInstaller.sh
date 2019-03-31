@@ -146,7 +146,7 @@ echo "---------------------Beginning FFMPEG Installation------------------------
         echo "Installing FFMPEG...."
         
         cd ~/ffmpeg_sources
-        tar -xzvf $owd/ffmpeg-2.8.2.tar.bz2
+        tar -xvf $owd/ffmpeg-2.8.2.tar.bz2
         cd ffmpeg-2.8.2
         PKG_CONFIG_PATH="$HOME/ffmpeg_build/lib/pkgconfig" ./configure --prefix="$HOME/ffmpeg_build" --extra-cflags="-I$HOME/ffmpeg_build/include" --extra-ldflags="-L$HOME/ffmpeg_build/lib" --bindir="$HOME/bin" --pkg-config-flags="--static" --enable-gpl --enable-nonfree --enable-libopencore-amrnb --enable-version3 --enable-libfdk_aac --enable-libvo-aacenc --enable-libmp3lame --enable-libx264 --enable-libxvid
         config_chk ffmpeg
@@ -197,5 +197,7 @@ echo "---------------------Beginning FFMPEG Installation------------------------
 
         cd 2017
         export PATH=$PATH:$(pwd)
+
+        echo 'ADD PATH=$PATH:'$(pwd) "TO ENVIRONMENT GLOBALLY TO RUN ffmpeg2017"
 
         echo "---------------FFMPEG INSTALLER EXITED------------------"
