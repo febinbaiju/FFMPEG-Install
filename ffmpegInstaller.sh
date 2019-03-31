@@ -37,7 +37,7 @@ echo "---------------------Beginning FFMPEG Installation------------------------
         owd=$(pwd)
 	    mkdir -p /usr/ffmpeg2017/
         export HOME=/usr/ffmpeg2017/ #  Global Declaration
-        export PATH=$PATH:/usr/ffmpeg2017/bin
+        PATH=$PATH:/usr/ffmpeg2017/bin
         echo "Making installation directory..."
         mkdir ~/ffmpeg_sources
         
@@ -146,7 +146,7 @@ echo "---------------------Beginning FFMPEG Installation------------------------
         echo "Installing FFMPEG...."
         
         cd ~/ffmpeg_sources
-        tar -xJf $owd/ffmpeg-2.8.2.tar.xz
+        tar -xzvf $owd/ffmpeg-2.8.2.tar.bz2
         cd ffmpeg-2.8.2
         PKG_CONFIG_PATH="$HOME/ffmpeg_build/lib/pkgconfig" ./configure --prefix="$HOME/ffmpeg_build" --extra-cflags="-I$HOME/ffmpeg_build/include" --extra-ldflags="-L$HOME/ffmpeg_build/lib" --bindir="$HOME/bin" --pkg-config-flags="--static" --enable-gpl --enable-nonfree --enable-libopencore-amrnb --enable-version3 --enable-libfdk_aac --enable-libvo-aacenc --enable-libmp3lame --enable-libx264 --enable-libxvid
         config_chk ffmpeg
@@ -163,7 +163,7 @@ echo "---------------------Beginning FFMPEG Installation------------------------
 		rm -f $owd/opencore-amr-0.1.3.tar.xz
 		rm -f $owd/xvidcore-1.3.2.tar.xz
 		rm -f $owd/vo-aacenc-0.1.3.tar.xz
-		rm -f $owd/ffmpeg-2.8.2.tar.xz
+		rm -f $owd/ffmpeg-2.8.2.tar.bz2
         rm -f $owd/fdk-aac.tar.xz
         rm -f $owd/x264.tar.xz
         rm -f $owd/yasm-1.3.0.tar.gz
@@ -196,6 +196,6 @@ echo "---------------------Beginning FFMPEG Installation------------------------
         echo "ADDING ffmpeg2017 TO GLOBAL PATH"
 
         cd 2017
-        PATH=$PATH:$(pwd)
+        export PATH=$PATH:$(pwd)
 
         echo "---------------FFMPEG INSTALLER EXITED------------------"
