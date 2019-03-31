@@ -33,7 +33,18 @@ echo "---------------------Beginning FFMPEG Installation------------------------
 
     chk_root
         echo "Installing dependencies........."
+        if [ -f /etc/redhat-release ]
+        then
+        echo "OS DETECTED: CentOS"
         yum install autoconf automake bzip2 bzip2-devel cmake freetype-devel gcc gcc-c++ git libtool make mercurial pkgconfig zlib-devel -y
+    elif [[ -f /etc/os-release ]]; then
+        echo "OS DETECTED: UBUNTU"
+        apt-get -y install autoconf automake build-essential cmake git-core libass-dev libfreetype6-dev libsdl2-dev libtool libva-dev libvdpau-dev libvorbis-dev libxcb1-dev libxcb-shm0-dev libxcb-xfixes0-dev pkg-config texinfo wget zlib1g-dev
+    else
+        echo "OS NOT SUPPORTED"
+        exit
+    fi
+
         owd=$(pwd)
 	    mkdir -p /usr/ffmpeg2017/
         export HOME=/usr/ffmpeg2017/ #  Global Declaration
