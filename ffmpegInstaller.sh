@@ -33,7 +33,7 @@ echo "---------------------Beginning FFMPEG Installation------------------------
 
     chk_root
         echo "Installing dependencies........."
-        apt-get -y install autoconf automake build-essential cmake git-core libass-dev libfreetype6-dev libsdl2-dev libtool libva-dev libvdpau-dev libvorbis-dev libxcb1-dev libxcb-shm0-dev libxcb-xfixes0-dev pkg-config texinfo wget zlib1g-dev
+        yum install autoconf automake bzip2 bzip2-devel cmake freetype-devel gcc gcc-c++ git libtool make mercurial pkgconfig zlib-devel -y
         owd=$(pwd)
 	    mkdir -p /usr/ffmpeg2017/
         export HOME=/usr/ffmpeg2017/ #  Global Declaration
